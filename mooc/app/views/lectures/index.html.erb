@@ -1,0 +1,143 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<% if @lectures.count > 0 %>
+<h1>Listing Lectures</h1>
+<% end %>
+
+
+
+
+
+<% @lectures.each do |lecture| %>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="padding-top: 10px;">Related To Course <%= lecture.try(:course).try(:title) %></div>
+      <div class="panel-body">
+        
+        <div class="panel panel-default" style="margin-top: 10px;">
+          <div class="panel-body">
+            <%= lecture.try(:content).try(:html_safe) %>
+          </div>          
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p>With Attachment : <%= lecture.try(:course).try(:title) %></p>
+          </div>          
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-body">  
+                <%= link_to 'Show', lecture , class: "btn btn-primary homebuttons" %>
+                <%= link_to 'Edit', edit_lecture_path(lecture) , class: "btn btn-primary homebuttons" %>
+                <%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' }  , class: "btn btn-primary homebuttons"%>
+                <% if current_user %>  
+                    <% unless Like.where(user_id: current_user.id, lecture_id: lecture.id).exists? %>                     
+                            <%= link_to 'like lecture', user_like_lecture_lecture_path(lecture) , method: :put , class: "btn btn-primary homebuttons" %>
+                    <% else %>
+                           <%= link_to 'dislike lecture', user_dislike_lecture_lecture_path(lecture) , method: :delete , class: "btn btn-primary homebuttons"%>
+                    <% end %>                  
+                    <% unless Spam.where(user_id: current_user.id, lecture_id: lecture.id).exists? %>
+                            <%= link_to 'Spam lecture', user_spam_lecture_lecture_path(lecture) , method: :put , class: "btn btn-primary homebuttons"%>
+                    <% else %>
+                           <%= link_to 'Un-Spam lecture', user_unspam_lecture_lecture_path(lecture) , method: :delete , class: "btn btn-primary homebuttons"%>
+                    <% end %>    
+                <% end %> 
+          </div>          
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+<% end %>
+
+
+
+
+<% if @lectures.count > 0 %>
+<h1>Listing Lectures in Tabular Form</h1>
+<% end %>
+
+
+
+
+<table  class="table table-bordered" >
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Attachment</th>
+      <th>Course</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lectures.each do |lecture| %>
+      <tr>
+        <td><%= lecture.try(:content) %></td>
+        <td><%= lecture.try(:attachment) %></td>
+        <td><%= lecture.try(:course).try(:title) %></td>
+       
+
+
+
+
+        
+        <td><%= link_to 'Show', lecture %></td>
+                
+        <% if lecture.try(:user).try(:id) == current_user.try(:id) && current_user.try(:usertype)  == 2  %>
+
+              <td><%= link_to 'Edit', edit_lecture_path(lecture) %></td>
+              <td><%= link_to 'Destroy', lecture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% end %>
+
+        
+
+
+        <% if current_user %>  
+            <% unless Like.where(user_id: current_user.id, lecture_id: lecture.id).exists? %>
+                    <td><%= link_to 'like lecture', user_like_lecture_lecture_path(lecture) , method: :put %></td>
+            <% else %>
+                   <td><%= link_to 'dislike lecture', user_dislike_lecture_lecture_path(lecture) , method: :delete %></td>
+            <% end %>
+
+
+          
+            <% unless Spam.where(user_id: current_user.id, lecture_id: lecture.id).exists? %>
+                    <td><%= link_to 'Spam lecture', user_spam_lecture_lecture_path(lecture) , method: :put %></td>
+            <% else %>
+                   <td><%= link_to 'Un-Spam lecture', user_unspam_lecture_lecture_path(lecture) , method: :delete %></td>
+            <% end %>           
+
+        <% end %> 
+
+
+
+          </tr>
+        <% end %>
+
+
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+<% if current_user.try(:id) && current_user.try(:usertype)  == 2 %>
+
+
+
+<%= link_to 'New Lecture', new_lecture_path ,class: "btn btn-danger btn-lg homebuttons" %>
+
+
+<% end %>

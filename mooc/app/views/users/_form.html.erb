@@ -1,0 +1,81 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+      <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li class="alert alert-danger"><%= message %></li>
+      <% end %>
+      </ul>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :email %><br/>
+    <%= f.email_field :email %>
+  </div>
+
+  
+  <%
+      select_list = { student: 1, instructor: 2 }
+  %>
+
+
+ 
+
+
+  <div class="form-group">
+    <%= f.label "type" %><br/>
+    <%= f.select :usertype, select_list , :class => 'my-ddl-form-control' , :style => '  width: 200px;' %>
+
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :password %> <br/>
+    <%= f.password_field :password %>
+
+    </div>
+    <div class="form-group">
+    <%= f.label :password_confirmation %> <br/>
+    <%= f.password_field :password_confirmation %>
+
+  </div>
+  <div class="form-group">
+    <%= f.label "Birth Date" %><br>
+    <%= f.text_field :birthdate, "data-provide" => 'datepicker' , "data-date-format" => "yy-mm-dd"%> <br/>
+
+  </div>
+
+  <div class="form-group">
+      <%= f.radio_button :gender, true, :class => 'radio-inline'  , :style => '    font-weight: bold;' %> Male 
+      <%= f.radio_button :gender, false, :class => 'radio-inline' , :style => '    font-weight: bold;'  %>Female 
+  </div>
+
+  <div class="form-group">
+  <%= f.label "Picture" %> <br/>
+    <%= f.file_field :picture %><br>
+    <%= f.hidden_field :picture_cache %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+

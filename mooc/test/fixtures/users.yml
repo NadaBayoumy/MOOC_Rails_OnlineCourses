@@ -1,0 +1,68 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: 
+    id: 1
+    name: 'NameTest1'
+    email: 'nametest12@domaidddn.com'
+    encrypted_password: '$2a$11$Rhavu3T6EzF1xfhKaDE4rOX.x0860L3puqnoFgQ36GNHP1OtheNrm' 
+    birthdate: '04/30/1990'
+    gender: 'false'
+    picture: 'chatapp4.jpg'
+    created_at: '2017-05-10 18:20:14.301598'
+    updated_at: '2017-05-10 18:20:14.301598'
+    usertype: 1
+# column: value
+#
+two: {}
+#  column: value
+
+
+
+
+valid_user: 
+    id: 12
+    name: 'NameTest2'
+    email: 'nametest2@domaidddn.com'
+    encrypted_password: '$2a$11$Rhavu3T6EzF1xfhKaDE4rOX.x0860L3puqnoFgQ36GNHP1OtheNrm' 
+    birthdate: '04/30/1990'
+    gender: 'false'
+    picture: 'chatapp3.jpg'
+    created_at: '2017-05-10 18:20:14.301598'
+    updated_at: '2017-05-10 18:20:14.301598'
+    usertype: 1
+
+
+invalid_user_without_name: 
+    id: 3
+    email: 'nametest3@domaaain.com'
+    encrypted_password: '$2a$11$Rhavu3T6EzF1xfhKaDE4rOX.x0860L3puqnoFgQ36GNHP1OtheNrm' 
+    birthdate: '04/30/1990'
+    gender: 'false'
+    picture: 'chatapp2.jpg'
+    created_at: '2017-05-10 18:20:14.301598'
+    updated_at: '2017-05-10 18:20:14.301598'
+    usertype: 1
+
+
+invalid_user_without_email: 
+    id: 9
+    name: 'Userndssameff'
+    encrypted_password: '$2a$11$Rhavu3T6EzF1xfhKaDE4rOX.x0860L3puqnoFgQ36GNHP1OtheNrm' 
+    birthdate: '04/30/1990'
+    gender: 'false'
+    picture: 'chatapp1.jpg'
+    created_at: '2017-05-10 18:20:14.301598'
+    updated_at: '2017-05-10 18:20:14.301598'
+    usertype: 1
+
+
+# test user with 1 year old
+
+
+
+
+

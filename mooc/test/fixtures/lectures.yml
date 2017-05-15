@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid_lecture:
+  id: 9
+  content: ValidContent
+  attachment: ValidAttachment
+  course_id: 1
+  
+
+invalid_lecture_without_course_id:
+  id: 12
+  content: NOTValidContent
+  attachment: NOTValidAttachment
+  course_id: 1
+
+
+invalid_lecture_with_null_fields:
+  id: 4
+  content: 
+  attachment: 
+  course_id: 

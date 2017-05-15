@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="jumbotron">
+  <h1><%= @course.title %></h1>
+ 
+ 
+      <% if @course.try(:user).try(:id) == current_user.try(:id) && current_user.try(:usertype)  == 2 %>
+
+
+				<span><%= link_to 'Edit', edit_course_path(@course) ,class: "btn btn-primary btn-lg homebuttons" %></span> 
+				<span><%= link_to 'Add Lecture', new_lecture_path(@course) ,class: "btn btn-danger btn-lg homebuttons" %> </span>
+
+
+		<% end %>
+		<span><%= link_to 'Back', courses_path ,class: "btn btn-primary btn-lg homebuttons" %></span>
+
+</div>
+
+
+
+lectures under this course:
+
+
+
+<% @lectures.each do |lecture| %>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="padding-top: 10px;">Related To Course <%= lecture.try(:course).try(:title) %></div>
+      <div class="panel-body">
+        
+        <div class="panel panel-default" style="margin-top: 10px;">
+          <div class="panel-body">
+            <%= lecture.try(:content).try(:html_safe) %>
+          </div>          
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p>With Attachment : 
+             <%= 
+                link_to "Show the Attached File", lecture.try(:attachment).url
+             %>
+          </div>          
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-body">  
+          <%= link_to 'Show', lecture , class: "btn btn-primary homebuttons" %>
+
+
+          </div>          
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+<% end %>
+
+
+
+

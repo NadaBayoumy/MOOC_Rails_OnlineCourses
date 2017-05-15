@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mooc</title>
+  
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+
+	  <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+	<style type="text/css">
+		.mainbody{
+			background-color: #f0f0f0;
+		}
+		.field_with_errors {
+		    padding: 2px;
+		    background-color: #ebccd1;
+		    display: table;
+		    border-style: dotted;
+		}
+		.table.table-bordered{
+			background-color: #f9f9f9;
+		}
+
+	</style>
+	</head>
+
+<body class="mainbody">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'MOOC', root_path() ,class: "navbar-brand" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+       <% if user_signed_in? %>
+            <li><%= link_to current_user.email, user_path(current_user) %> </li>
+       <% end %>
+
+       
+		<% if current_user %>		
+            <li><%= link_to "Log out", destroy_session_path(:user), :method => :delete %></li>
+            <li><%= link_to "Courses", courses_path() %></li>
+            <!-- <li><%#= link_to "Lectures", lectures_path() %></li> -->
+		        <li><%= link_to "Users", users_path() %></li>
+        <% else %>
+
+             <li><%= link_to 'Login', user_session_path() %> </li>
+             <li><%= link_to 'Register', new_user_path() %> </li>
+
+        <% end %>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+
+<div class="container">
+
+<style>
+.btn-primary {
+color: #fff !important;
+
+}
+
+.homebuttons {
+text-decoration: none !important;
+margin: 10px;
+color: #fff !important;
+}
+	
+
+#notice{
+	color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.backbutton
+{
+
+	border-radius: 200px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.0em;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 12px;
+    margin-right: 3px;
+    padding: 7px 16px 6px;
+    text-decoration: none;
+    background-color: #838a90;
+    background-image: linear-gradient(180deg, #838a90, #414549);
+    text-shadow: #000 0 1px 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 0px rgba(255, 255, 255, 0.2) inset;
+    border: solid 1px #484e53;
+    border-color: #484e53;
+    border-top-color: #616a71;
+    border-right-color: #484e53;
+    border-bottom-color: #363b3f;
+    border-left-color: #484e53;
+    color: #efefef;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.jumbtron{
+  background-color: white;
+}
+.my-ddl-form-control{
+  width: 200px;
+}
+</style>
+
+<%= yield %>
+
+</div>
+
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

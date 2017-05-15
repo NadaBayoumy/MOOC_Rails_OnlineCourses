@@ -1,0 +1,8 @@
+HTML DOM Nodes
+In the HTML DOM (Document Object Model), everything is a node:
+
+The document itself is a document node
+All HTML elements are element nodes
+All HTML attributes are attribute nodes
+Text inside HTML elements are text nodes
+Comments are comment nodes

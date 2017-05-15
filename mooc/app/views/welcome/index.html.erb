@@ -1,0 +1,18 @@
+
+
+
+<div class="jumbotron container welcomepage" style="background-color:ghostwhite; text-align: center;font-style: italic;">
+
+  <h1>Welcome in Massive Open Online Courses (MOOC)</h1>
+  <div class="btn-group">
+
+
+    <% unless current_user %>
+
+	  	<%= link_to 'Login', user_session_path() , class: " homebuttons btn btn-primary btn-lg"  %> 
+		<%= link_to 'Register', new_user_path() , class: "homebuttons btn btn-primary btn-lg" %> 
+
+	<% end %>
+
+  </div>
+</div>

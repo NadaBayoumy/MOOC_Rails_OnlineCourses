@@ -1,0 +1,143 @@
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+sudo mv composer.phar /usr/local/bin/composer
+composer --version
+
+
+____________________________________________________________________________________________
+
+composer create project --prefer-dist >> get last stablle release
+
+
+packagist
+
+packlist
+
+
+--prefer-dist
+btro7 ll repository bt2olo hat elstable version bt3t el 7agat de
+
+laravel/laravel blog
+
+esm elvendor / esm el package  space blog >> da esm eldirectory eli hygeb feh el7aga
+
+composer laravel/laravel blog 
+
+el7gat eli enta gebtaha hayrmiha f directory esmmo blog 3ndy
+
+
+https://getcomposer.org/doc/03-cli.md
+
+__________________________
+
+
+laravel tenker is the console of laravel
+
+
+composer.json
+
+elrequire wel requirre-dev
+
+________________________________________
+
+
+/vendor/autolad.php
+
+da eli feh kol el includes 3aml dumb lkol elclasses fel mlf da
+
+
+
+///////////////////////////////////////////////////
+
+
+composer installl
+
+__________________________________
+
+
+https://github.com/laravel/framework
+
+ay folder packages hla2y t7teeh composer.json
+
+el app feh el modell wel controller
+
+
+
+front controller
+entry point bt3 el project fel public folder
+
+
+_______________________________
+
+
+message('hello world ') arby wenglizi
+
+
+
+
+
+.env
+feh environmental variables
+
+
+__________________________________________
+nazelt mel git hub
+mn wa7ed sa7bak
+
+1)composer install
+
+2).env.example mel framework wa7oto 3ndy wa3del feh el configuration
+
+_______________________
+
+artisan haylist all commands
+
+
+______________________________________
+
+
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+
+
+
+facade design pattern
+
+
+high level module depend on low level module
+both shoul depend on abstraction
+
+
+
+______________________________________
+
+
+https://thoughtbot.com/upcase/videos/tell-don-t-ask
+
+________________________________________
+
+make migration:
+
+
+php artisan make:migration create_posts_table --create=posts
+
+
+
+
+
+
+
+
+
+
+
+
+
